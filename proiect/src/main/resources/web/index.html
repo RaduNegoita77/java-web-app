@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="scene-login" class="scene active">
+    <div class="card">
+        <h1>Login</h1>
+        <input type="text" id="login-username" placeholder="Username din DB">
+        <button onclick="login('ADMIN')">Admin</button>
+        <button onclick="login('USER')">User</button>
+    </div>
+</div>
+
+<div id="scene-admin" class="scene">
+    <div class="card">
+        <h2>Creeaza User</h2>
+        <input type="text" id="admin-new-name" placeholder="Nume Complet">
+        <input type="text" id="admin-new-user" placeholder="Username">
+        <button onclick="addUser()">Salvare</button>
+        <button onclick="changeScene('login')">Logout</button>
+    </div>
+    <div id="admin-user-list"></div>
+</div>
+
+<div id="scene-user" class="scene">
+    <div class="card">
+        <h2>Adauga Proiect</h2>
+        <input type="text" id="p-title" placeholder="Titlu">
+        <input type="text" id="p-desc" placeholder="Descriere">
+        <button onclick="addProject()">Adauga</button>
+        <button onclick="changeScene('login')">Logout</button>
+    </div>
+    <div id="user-project-list"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+@startuml
+!theme plain
+
+interface DataPersistence {
+  + saveToFile(path: Path): void
+  + loadFromFile(path: Path): void
+}
+
+interface StatsProvider {
+  + printStats(): void
+}
+
+class DataStore {
+  - {static} INSTANCE: DataStore
+  - users: Map<UUID, User>
+  - profiles: Map<UUID, Profile>
+  - mapper: ObjectMapper
+  + {static} getInstance(): DataStore
+  + createSampleData(): void
+  + addUser(u: User): void
+  + getUser(id: UUID): User
+  + printStats(): void
+  + saveAllToJson(dir: Path): void
+  + loadAllFromJson(dir: Path): void
+  + saveAllToBinary(dir: Path): void
+  + loadAllFromBinary(dir: Path): void
+  + comparePersistence(dir: Path): void
+}
+
+class User {
+  - id: UUID
+  - name: String
+  - email: String
+  + User(name: String, email: String)
+  + getId(): UUID
+  + getName(): String
+  + getEmail(): String
+}
+
+class Profile {
+  - id: UUID
+  - userId: UUID
+  - skills: List<String>
+  + Profile(userId: UUID)
+  + getId(): UUID
+  + getUserId(): UUID
+  + getSkills(): List<String>
+}
+
+DataStore ..|> DataPersistence
+DataStore ..|> StatsProvider
+DataStore --> User : contains
+DataStore --> Profile : contains
+User ||--|| Profile : has
+
+note top of DataStore
+Collections:
+- Map<UUID, User>
+- Map<UUID, Profile>
+- List<String> (in Profile)
+end note
+@enduml

@@ -1,0 +1,9 @@
+[ {
+  "id" : "e600cc57-af01-461e-bf99-c5f480094c09",
+  "userId" : "27b3a8a4-e1bf-49ac-aa36-cac0d6e3e99c",
+  "skills" : [ "java", "ai" ]
+}, {
+  "id" : "1387892d-e2a6-4ffa-b67b-c423381cf8d8",
+  "userId" : "d116b3af-3a7f-4d02-82e8-40b2f6c4984a",
+  "skills" : [ "java", "ui" ]
+} ]
